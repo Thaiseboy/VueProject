@@ -1,0 +1,44 @@
+{
+  "inspections": [
+    {
+      "inspection_id": 1,
+      "date": "2024-02-29",
+      "location": "Street Name 123, City",
+      "inspector": "Inspector Name 1",
+      "result": "Approved",
+      "comments": "Everything in order, no visible defects."
+    },
+    {
+      "inspection_id": 2,
+      "date": "2024-03-05",
+      "location": "Another Street 456, Village",
+      "inspector": "Inspector Name 2",
+      "result": "Rejected",
+      "comments": "Leakage detected, repair required."
+    },
+    {
+      "inspection_id": 3,
+      "date": "2024-03-12",
+      "location": "Main Road 789, Town",
+      "inspector": "Inspector Name 3",
+      "result": "In Progress",
+      "comments": "Further investigation needed, report to follow."
+    },
+    {
+      "inspection_id": 4,
+      "date": "2024-03-18",
+      "location": "Central Square 101, City",
+      "inspector": "Inspector Name 1",
+      "result": "Approved",
+      "comments": "No defects found, everything in order."
+    },
+    {
+      "inspection_id": 5,
+      "date": "2024-03-25",
+      "location": "Side Street 222, Village",
+      "inspector": "Inspector Name 2",
+      "result": "Rejected",
+      "comments": "Electrical issue detected, repair required."
+    }
+  ]
+}

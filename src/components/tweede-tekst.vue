@@ -10,6 +10,6 @@ export default {
 </script>
 <style scoped>
 h1 {
-    margin:0;
+    margin:5;
 }
 </style>

@@ -1,4 +1,5 @@
-// dash-board.vue
+<!-- dash-board.vue -->
+
 <template>
     <v-container>
         <v-app>
@@ -30,24 +31,28 @@
             <v-row v-if="activeTab === 0">
                 <v-col>
                     <h2>Toegewezen Rapportages</h2>
+                    <DashBoardInspecties />
                     <!--  Inhoud eerste tabblad -->
                 </v-col>
             </v-row>
             <v-row v-if="activeTab === 1">
                 <v-col>
                     <h2>Uitgevoerde Rapportages openen</h2>
+                    <DashBoardInspecties />
                     <!-- Inhoud tweede tabblad -->
                 </v-col>
             </v-row>
             <v-row v-if="activeTab === 2">
                 <v-col>
                     <h2>Kennisbank/documentatie</h2>
+                    <DashBoardInspecties />
                     <!-- Inhoud derde tabblad -->
                 </v-col>
             </v-row>
             <v-row v-if="activeTab === 3">
                 <v-col>
                     <h2>Instellingen(of beheer)</h2>
+                    <DashBoardInspecties />
                     <!-- Inhoud vierde tabblad -->
                 </v-col>
             </v-row>
@@ -57,11 +62,13 @@
 
 <script>
 import ToolBar from './tool-bar.vue';
+import DashBoardInspecties from './dash-board-inspecties.vue';  // Aangenomen componentnaam
 
 export default {
     name: 'DashBoard',
     components: {
         ToolBar,
+        DashBoardInspecties,
     },
     data() {
         return {

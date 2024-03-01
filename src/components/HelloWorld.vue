@@ -1,3 +1,4 @@
+<!-- views/HelloWorld.vue -->
 <template>
   <div>
     <div class="hello">
@@ -9,22 +10,25 @@
               <TweedeTekst />
             </v-col>
           </v-row>
+          <DashBoard />
         </v-container>
       </v-app>
     </div>
-    <DashBoard />
+    <DashBoardInspecties />
   </div>
 </template>
 
 <script>
-import TweedeTekst from './tweede-tekst.vue';
-import DashBoard from './dash-board.vue';
+import TweedeTekst from '@/components/tweede-tekst.vue'; // Pas het pad aan op basis van je projectstructuur
+import DashBoard from '@/components/dash-board.vue'; // Pas het pad aan op basis van je projectstructuur
+import DashBoardInspecties from '@/components/dash-board-inspecties.vue'; // Pas het pad aan op basis van je projectstructuur
 
 export default {
   name: 'HelloWorld',
   components: {
     TweedeTekst,
     DashBoard,
+    DashBoardInspecties, // Voeg DashBoardInspecties toe aan de lijst van geïmporteerde componenten
   },
   props: {
     msg: {
@@ -37,13 +41,7 @@ export default {
 
 <style scoped>
 .hello {
-  border: 4px solid black;
+  border: 3px solid black;
   background-color: rgba(0, 170, 162, 1);
-}
-
-/* Voeg een stijl toe om de h2 buiten .hello te positioneren */
-h2 {
-  margin-top: 20px;
-  /* Pas de marge aan op basis van jouw behoeften */
 }
 </style>
