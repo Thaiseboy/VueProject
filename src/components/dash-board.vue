@@ -1,86 +1,88 @@
 <!-- dash-board.vue -->
-
 <template>
-    <v-container>
-        <v-app>
-            <v-row>
-                <v-col>
-                    <ToolBar @icon-click="changeTab" />
-                </v-col>
-            </v-row>
-            <v-row>
-                <v-col>
-                    <v-bottom-navigation v-model="activeTab">
-                        <v-btn icon @click="changeTab(0)">
-                            <v-icon>{{ mdiAccount }}</v-icon>
-                        </v-btn>
-                        <v-btn icon @click="changeTab(1)">
-                            <v-icon>{{ mdiFileEye }}</v-icon>
-                        </v-btn>
-                        <v-btn icon @click="changeTab(2)">
-                            <v-icon>{{ mdiDatabaseEye }}</v-icon>
-                        </v-btn>
-                        <v-btn icon @click="changeTab(3)">
-                            <v-icon>{{ mdiTools }}</v-icon>
-                        </v-btn>
-                    </v-bottom-navigation>
-                </v-col>
-            </v-row>
+  <v-container>
+    <v-row>
+      <v-col>
+        <!-- Toolbar-component om de tabbladen te bedienen -->
+        <ToolBar @icon-click="changeTab" />
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col>
+        <!-- Onderste navigatie om tussen tabbladen te schakelen -->
+        <v-bottom-navigation v-model="activeTab">
+        </v-bottom-navigation>
+      </v-col>
+    </v-row>
 
-            <!-- Inhoud van de tabbladen -->
-            <v-row v-if="activeTab === 0">
-                <v-col>
-                    <h2>Toegewezen Rapportages</h2>
-                    <DashBoardInspecties />
-                    <!--  Inhoud eerste tabblad -->
-                </v-col>
-            </v-row>
-            <v-row v-if="activeTab === 1">
-                <v-col>
-                    <h2>Uitgevoerde Rapportages openen</h2>
-                    <DashBoardInspecties />
-                    <!-- Inhoud tweede tabblad -->
-                </v-col>
-            </v-row>
-            <v-row v-if="activeTab === 2">
-                <v-col>
-                    <h2>Kennisbank/documentatie</h2>
-                    <DashBoardInspecties />
-                    <!-- Inhoud derde tabblad -->
-                </v-col>
-            </v-row>
-            <v-row v-if="activeTab === 3">
-                <v-col>
-                    <h2>Instellingen(of beheer)</h2>
-                    <DashBoardInspecties />
-                    <!-- Inhoud vierde tabblad -->
-                </v-col>
-            </v-row>
-        </v-app>
-    </v-container>
+    <!-- Inhoud van de tabbladen -->
+    <v-row v-if="activeTab === 0">
+      <v-col>
+        <h2>Toegewezen Rapportages</h2>
+        <!-- Voeg een andere component toe voor toegewezen rapportages -->
+      </v-col>
+    </v-row>
+    <v-row v-if="activeTab === 1">
+      <v-col>
+        <!-- Inspectielijst-component voor weergave van inspecties -->
+        <InspectionList :inspections="inspections" @inspection-selected="showInspectionDetails" />
+      </v-col>
+    </v-row>
+    <v-row v-if="activeTab === 2">
+      <v-col>
+        <h2>Kennisbank/documentatie</h2>
+        <!-- Voeg een andere component toe voor kennisbank/documentatie -->
+      </v-col>
+    </v-row>
+    <v-row v-if="activeTab === 3">
+      <v-col>
+        <h2>Instellingen(of beheer)</h2>
+        <!-- Voeg een andere component toe voor instellingen/beheer -->
+      </v-col>
+    </v-row>
+
+    <!-- Toon InspectionDetails-component als een inspectie is geselecteerd -->
+    <v-row v-if="selectedInspection">
+      <v-col>
+        <InspectionDetails :inspection="selectedInspection" />
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
 import ToolBar from './tool-bar.vue';
-import DashBoardInspecties from './dash-board-inspecties.vue';  // Aangenomen componentnaam
+import InspectionList from './InspectionList.vue'; 
+import InspectionDetails from './InspectionDetails.vue'; 
 
 export default {
-    name: 'DashBoard',
-    components: {
-        ToolBar,
-        DashBoardInspecties,
+  name: 'DashBoard',
+  components: {
+    ToolBar,
+    InspectionList,
+    InspectionDetails,
+  },
+  data() {
+    return {
+      activeTab: 0,
+      inspections: [],
+      selectedInspection: null,
+    };
+  },
+  methods: {
+    changeTab(tabIndex) {
+      this.activeTab = tabIndex;
     },
-    data() {
-        return {
-            activeTab: 0,
-        };
+    showInspectionDetails(inspection) {
+      this.selectedInspection = inspection;
     },
-    methods: {
-        changeTab(tabIndex) {
-            this.activeTab = tabIndex;
-        },
-    },
+  },
+  mounted() {
+    // Haal inspecties op van de service bij het laden van het component
+    this.fetchInspections();
+  },
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+</style>

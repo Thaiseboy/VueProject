@@ -1,3 +1,4 @@
+<!-- tweede-tekst.vue -->
 <template>
     <div>
         <h1>Caring is in our nature</h1>
