@@ -1,4 +1,4 @@
-<!-- views/HelloWorld.vue -->
+<!-- HelloWorld.vue -->
 <template>
   <div>
     <div class="hello">
@@ -21,14 +21,13 @@
 <script>
 import TweedeTekst from '@/components/tweede-tekst.vue'; // Pas het pad aan op basis van je projectstructuur
 import DashBoard from '@/components/dash-board.vue'; // Pas het pad aan op basis van je projectstructuur
-import DashBoardInspecties from '@/components/dash-board-inspecties.vue'; // Pas het pad aan op basis van je projectstructuur
+ 
 
 export default {
   name: 'HelloWorld',
   components: {
     TweedeTekst,
     DashBoard,
-    DashBoardInspecties, // Voeg DashBoardInspecties toe aan de lijst van geïmporteerde componenten
   },
   props: {
     msg: {

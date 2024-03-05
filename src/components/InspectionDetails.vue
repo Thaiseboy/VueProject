@@ -8,7 +8,6 @@
       <v-card-text>
         <p>Resultaat: {{ inspection.result }}</p>
         <p>Opmerkingen: {{ inspection.comments }}</p>
-        <!-- Voeg andere details toe die je wilt weergeven -->
       </v-card-text>
     </v-card>
   </div>
