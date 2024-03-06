@@ -1,6 +1,7 @@
 <!-- InspectionList.vue -->
 <template>
   <div>
+    <!-- Lijst van uitgevoerde inspecties -->
     <h2>Geopende Rapportages</h2>
     <v-list>
       <v-list-item-group v-if="sortedInspections.length > 0">

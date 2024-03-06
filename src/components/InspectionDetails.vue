@@ -1,6 +1,7 @@
 <!-- InspectionDetails.vue -->
 <template>
   <div>
+    <!-- Details van inspectie weergeven -->
     <h2>Inspectie Details</h2>
     <v-card>
       <v-card-title>{{ inspection.location }} - {{ inspection.date }}</v-card-title>
