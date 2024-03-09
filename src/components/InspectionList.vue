@@ -1,50 +1,47 @@
 <!-- InspectionList.vue -->
 <template>
   <div>
-    <!-- Lijst van uitgevoerde inspecties -->
-    <h2>Geopende Rapportages</h2>
-    <v-list>
-      <v-list-item-group v-if="sortedInspections.length > 0">
-        <!-- Lijst van inspecties, gesorteerd op datum -->
-        <v-list-item v-for="inspection in sortedInspections" :key="inspection.inspection_id" @click="showDetails(inspection)">
-          <v-list-item-content>
-            <v-list-item-title>{{ inspection.date }} - {{ inspection.location }}</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-      </v-list-item-group>
-      <v-alert v-else :value="true" dense type="info">
-        Er zijn geen uitgevoerde inspecties beschikbaar.
-      </v-alert>
-    </v-list>
+    <div class="inspection-grid">
+      <div v-for="inspection in inspections" :key="inspection.inspection_id" class="inspection-card">
+        <h3>{{ inspection.location }}</h3>
+        <p><strong>Inspector:</strong> {{ inspection.inspector }}</p>
+        <p><strong>Date:</strong> {{ inspection.date }}</p>
+        <p><strong>Result:</strong> {{ inspection.result }}</p>
+        <p><strong>Comments:</strong> {{ inspection.comments }}</p>
+        <div class="main-components">
+          <p v-if="inspection.options.damage"><strong>Schade</strong></p>
+          <p v-if="inspection.options.maintenance"><strong>Onderhoud</strong></p>
+          <p v-if="inspection.options.installations"><strong>Installaties</strong></p>
+          <p v-if="inspection.options.modifications"><strong>Modificaties</strong></p>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
   props: {
-    inspections: {
-      type: Array,
-      required: true,
-    },
-  },
-  computed: {
-    sortedInspections() {
-      // Maak een kopie van de array voordat je sorteert om mutatie te voorkomen
-      const inspectionsCopy = [...this.inspections];
-
-      // Sorteer de kopie van de array op basis van de inspectiedatum
-      return inspectionsCopy.sort((a, b) => new Date(b.date) - new Date(a.date));
-    },
-  },
-  methods: {
-    showDetails(inspection) {
-      // Zend een aangepaste gebeurtenis om de details van de geselecteerde inspectie weer te geven
-      this.$emit('inspection-selected', inspection);
-    },
+    inspections: Array,
   },
 };
 </script>
 
 <style scoped>
+.inspection-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
 
+.inspection-card {
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.main-components {
+  display: flex;
+  justify-content: space-between;
+}
 </style>

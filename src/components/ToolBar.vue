@@ -1,4 +1,4 @@
-// tool-bar.vue
+<!-- component/ToolBar.vue -->
 <template>
     <!-- Toolsbar -->
     <div class="tools">
@@ -39,4 +39,8 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.tools {
+    color: rgba(20, 27, 31, 1);
+}
+</style>

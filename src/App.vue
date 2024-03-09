@@ -1,17 +1,15 @@
 <template>
   <img alt="logo" src="./assets/REC.png">
-  <HelloWorld 
-  msg="Real Estate Care"
-  />
+  <HomePage />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import HomePage from './components/HomePage.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    HomePage
   }
 }
 </script>
@@ -27,3 +25,4 @@ img {
   height: auto;
 }
 </style>
+./components/HomePage.vue

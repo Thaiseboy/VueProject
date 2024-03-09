@@ -6,7 +6,13 @@
       "location": "Street Name 123, City",
       "inspector": "Inspector Name 1",
       "result": "Approved",
-      "comments": "Everything in order, no visible defects."
+      "comments": "Everything in order, no visible defects.",
+      "options": {
+        "damage": true,
+        "maintenance": true,
+        "installations": true,
+        "modifications": true
+      }
     },
     {
       "inspection_id": 2,
@@ -14,7 +20,13 @@
       "location": "Another Street 456, Village",
       "inspector": "Inspector Name 2",
       "result": "Rejected",
-      "comments": "Leakage detected, repair required."
+      "comments": "Leakage detected, repair required.",
+      "options": {
+        "damage": true,
+        "maintenance": true,
+        "installations": false,
+        "modifications": false
+      }
     },
     {
       "inspection_id": 3,
@@ -22,7 +34,13 @@
       "location": "Main Road 789, Town",
       "inspector": "Inspector Name 3",
       "result": "In Progress",
-      "comments": "Further investigation needed, report to follow."
+      "comments": "Further investigation needed, report to follow.",
+      "options": {
+        "damage": true,
+        "maintenance": true,
+        "installations": true,
+        "modifications": true
+      }
     },
     {
       "inspection_id": 4,
@@ -30,7 +48,13 @@
       "location": "Central Square 101, City",
       "inspector": "Inspector Name 1",
       "result": "Approved",
-      "comments": "No defects found, everything in order."
+      "comments": "No defects found, everything in order.",
+      "options": {
+        "damage": true,
+        "maintenance": true,
+        "installations": true,
+        "modifications": true
+      }
     },
     {
       "inspection_id": 5,
@@ -38,7 +62,13 @@
       "location": "Side Street 222, Village",
       "inspector": "Inspector Name 2",
       "result": "Rejected",
-      "comments": "Electrical issue detected, repair required."
+      "comments": "Electrical issue detected, repair required.",
+      "options": {
+        "damage": true,
+        "maintenance": true,
+        "installations": true,
+        "modifications": false
+      }
     }
   ]
 }
