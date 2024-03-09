@@ -1,3 +1,4 @@
+<!-- App.vue -->
 <template>
   <img alt="logo" src="./assets/REC.png">
   <HomePage />
